@@ -1,0 +1,73 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{title}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+<ion-grid>
+  <ion-row><!--
+    <ion-segment [(ngModel)]="i_tab" (ionChange)="setTitle()">
+      <ion-segment-button value="t1" >
+        <ion-label>Edit</ion-label>
+        <ion-icon name="create"></ion-icon>
+      </ion-segment-button>
+      <ion-segment-button value="t2">
+        <ion-label>Watch</ion-label>
+        <ion-icon name="eye"></ion-icon>
+      </ion-segment-button>
+
+    </ion-segment> -->
+  </ion-row>
+</ion-grid>
+  <div *ngIf="i_tab === 't1'">
+    <app-dynamic-form
+    [questions]="formFields"
+    (interactiveSubmit)="filter($event)"
+    (singleSubmit)="submit($event)"
+    [submitText]="submitText">
+   </app-dynamic-form>
+  </div>
+  <div *ngIf="i_tab === 't2'">
+ <ion-card>
+
+  <ion-card-header>
+    {{patient?.fullName}}
+  </ion-card-header>
+  <ion-card-content>
+    <p class="label">
+      data di nascita
+    </p>
+    <p class="value">
+      {{patient?.birthDate|date:'longDate':'it'}}
+    </p>
+    <p class="label">
+      peso
+    </p>
+    <p class="value">
+      {{patient?.weight}} Kg
+      <p class="label">
+        altezza
+      </p>
+      <p class="value">
+        {{patient?.height}}
+
+    </p>
+</ion-card-content>
+</ion-card>
+<app-list-injectable-items
+[itemsList]="itemsList"
+ [editPage]="editPage"
+ [createPage]="createPage"
+ [itemViewerComponent]="itemViewerComponent"
+ [listHead]="listHead"
+></app-list-injectable-items>
+  </div>
+
+</ion-content>

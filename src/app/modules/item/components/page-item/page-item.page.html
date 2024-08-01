@@ -1,0 +1,41 @@
+<ion-item>
+  <article>
+    <p class="value3">
+      {{ value3?.label }}
+      {{ value3?.value }}
+    </p>
+    <h1 slot="start" class="itemTitle">{{Item?.getTitle().value}}</h1>
+    <app-show-value [value]=Note></app-show-value>
+
+    <div>
+      <!--span [ngSwitch]="Item?.getNote().value">
+        <p slot="start" *ngSwitchCase="false"></p>
+        <p class="note">
+          {{ Item?.getNote().value }}
+        </p>
+      </span-->
+      <app-show-value [value]=Note class="note"></app-show-value>
+
+    </div>
+    <app-show-value [value]="value2" class="value2"></app-show-value>
+
+    <span class="value4" slot="start" style="white-space: nowrap;">
+    </span>
+<!-- <ion-button slot="end"><ion-icon name="{{iconSpecialFunction}}"></ion-icon></ion-button> -->
+
+    <div>
+
+      <span [ngSwitch]="Item?.hasQuickActions()">
+        <div *ngSwitchCase="true">
+          <ion-fab vertical="bottom" horizontal="end">
+            <ion-fab-button size="small" (click)="action(Item.key)">
+              <ion-icon name="{{icon4quickFunction}}" color="energetic"></ion-icon>
+            </ion-fab-button>
+          </ion-fab>
+        </div>
+        <p *ngSwitchCase="false"></p>
+        <p *ngSwitchDefault></p>
+      </span>
+    </div>
+  </article>
+</ion-item>

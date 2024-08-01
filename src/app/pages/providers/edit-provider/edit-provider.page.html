@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>editProvider</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="close()"><ion-icon name="close"></ion-icon></ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <app-dynamic-form
+  [questions]="formFields"
+   (interactiveSubmit)="filter($event)"
+    (singleSubmit)="submit($event)"
+   [submitText]="submitText"
+   [data4modal]="providerKey"
+   ></app-dynamic-form>
+
+</ion-content>

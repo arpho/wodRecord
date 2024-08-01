@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Requests</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <app-grid-injectable-items
+  [itemViewerComponent] = "itemViewerComponent"
+
+  [listHead]="listHead"
+  [service]="service"
+  (move2nextPage)="move2nextPage()"
+  (move2previousPage)="move2previousPage()"
+  (move2lastPage)="move2lastPage()"
+  (move2firstPage)="move2firstPage()"
+  (changeLimit)="setLimit($event)"
+  [navigationText]="navigationText"
+  ></app-grid-injectable-items>
+
+</ion-content>

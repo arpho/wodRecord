@@ -1,0 +1,45 @@
+ion-col.md.hydrated {
+    /* color: red; */
+    padding-left: 7vw;
+}
+
+
+ion-col.my-thin-col {
+    flex: 0 0 4px;
+    padding:0;
+    margin-right:10px;
+    }
+
+    ion-element {
+        /* border: solid 1px white; */
+        box-shadow: 1px 1px 1px 1px;
+        border-radius: 8px;
+    }
+
+    ion-col.my-thin-col.firstname.md.hydrated {
+        display: contents;
+        width: 0rem;
+    }
+
+    app-operator-viewer {
+        width: 100vw;
+        display: block;
+        width: 100%;
+        background-color: red;
+        align-items: flex-start;
+    }
+   
+   /*  ion-col.my-thin-col.lastname.md.hydrated {
+        padding-left: 25%;
+    }
+
+    ion-col.my-thin-col.email.md.hydrated {
+        padding-left: 40%;
+    } */
+
+    ion-element{
+        box-shadow: 1px 1px 1px 1px;
+        border-radius: 8px;
+        display: flex;
+        justify-content: space-evenly;
+    }

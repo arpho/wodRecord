@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>authorizationsList</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button class="button-clear ion-chevron-left" defaultHref="/home"></ion-back-button>
+      <ion-button (click)="renewAuthorizations()"><ion-icon name="document-lock-outline"></ion-icon></ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-spinner *ngIf="showLoading"></ion-spinner>
+  <app-grid-injectable-items
+   [editPage]="editPage"
+   [createPage]="createPage"
+   (item2Delete)="deleteItem($event)"
+   [titleFactory]="titleFactory"
+   [itemViewerComponent]="itemViewerComponent"
+   [hydeFab]="hydeFab"
+   [headers]="headers"
+   [service]="service"
+   (move2nextPage)="move2nextPage()"
+   (move2previousPage)="move2previousPage()"
+   [navigationText]="navigationText"
+   (move2lastPage)="move2lastPage()"
+   (move2firstPage)="move2firstPage()"
+  ></app-grid-injectable-items>
+
+</ion-content>

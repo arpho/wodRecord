@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>plantars</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-scrool scrollX="true">
+    <div style="width: 1000px;">
+  <app-grid-injectable-items
+  [itemViewerComponent] = "itemViewerComponent"
+  [showSpinner]="showSpinner"
+  [headers]="headers"
+  [listHead]="listHead"
+  [service]="service"
+  [actionFunction]="actionFunction"
+  (move2nextPage)="move2nextPage()"
+  (move2previousPage)="move2previousPage()"
+  (move2lastPage)="move2lastPage()"
+  (move2firstPage)="move2firstPage()"
+  (changeLimit)="setLimit($event)"
+  [navigationText]="navigationText"
+  ></app-grid-injectable-items>
+  </div>
+</ion-scrool>
+</ion-content>

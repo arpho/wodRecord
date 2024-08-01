@@ -1,0 +1,29 @@
+.parent{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginImage {
+    size: 20%;
+    width: 20%;
+    margin: auto;
+}
+.login{
+    width:60%
+}
+
+main.inner-scroll.scroll-y {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+background-color{
+    //  --background: url(/assets/images/geniallotto.jpg) 50% 50%/600px 600px no-repeat;
+    background: -webkit-linear-gradient(-45deg,  #EA5C54  0%,#bb6dec 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(-45deg,  #EA5C54  0%,#bb6dec 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(-45deg,  #EA5C54  0%,#bb6dec 100%); /* IE10+ */
+    background: linear-gradient(135deg,  #EA5C54  0%,#bb6dec 100%); /* W3C */
+      
+  }

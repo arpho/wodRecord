@@ -1,0 +1,9 @@
+import { AsyncValidatorFn } from "@angular/forms";
+import { DateModel } from "../../user/models/birthDateModel";
+import { QuestionProperties } from "./questionproperties";
+
+export interface DateProperties extends QuestionProperties<DateModel> {
+    "presentation"?: 'date' | 'time' | 'date-time' | 'time-date',
+    "isDateEnabled"?:(date:string)=> boolean,
+    "asyncValidator"?:AsyncValidatorFn[]
+}

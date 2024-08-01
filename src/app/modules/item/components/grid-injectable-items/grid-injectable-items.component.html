@@ -1,0 +1,54 @@
+<ion-toolbar>
+  <ion-title><p1>{{title}}</p1></ion-title>
+</ion-toolbar>
+<div *ngIf="showEmptyText">
+  <p id="emptyText">
+    {{emptyText}}
+  </p>
+</div>
+<div  >
+<ion-grid class="stickyHeader"  style="font-family: 'Monserrat';">
+  <ion-row class="header" >
+    <ion-col *ngFor="let head of headers"  style="font-family: 'Monserrat';" >
+     <p class="header my-thin-col"  style="font-family: 'Monserrat';"> {{head}}</p>
+        </ion-col>
+  </ion-row>
+</ion-grid>
+<div id="dataGrid">
+<ion-grid class="data">
+  <span class="loader"  *ngIf="service['serviceWorking']|async"></span>
+<ion-row class="data"
+*ngFor="let item of (service?.items|async); index as i"
+>
+<!-- 
+<ion-col *ngIf="!hydeFab"><ion-fab-button size="small" (click)="action(item)"><ion-icon name="send-outline"></ion-icon></ion-fab-button></ion-col> -->
+<app-items-host (click)="presentActionSheet(item)" [item]="item" [actionFunction]="actionFunction" [itemViewerComponent]="itemViewerComponent" (innerAction)="doAction($event)"></app-items-host>
+
+</ion-row>
+<ion-row *ngIf="!hydePagination">
+  <ion-col size="1"><ion-button (click)="gotoFirstPage()"><ion-icon name="caret-back-circle-outline"></ion-icon></ion-button></ion-col>
+  <ion-col size="1"><ion-button (click)="gotoPreviousPage()"><ion-icon name="caret-back-outline"></ion-icon></ion-button></ion-col>
+  <ion-col size="1"><p>{{navigationText}}</p></ion-col>
+  <ion-col size="1"><ion-button (click)="gotoNextPage()"><ion-icon name="caret-forward-outline"></ion-icon></ion-button></ion-col>
+  <ion-col size="1"><ion-button (click)="gotoLastPage()"><ion-icon name="caret-forward-circle-outline"></ion-icon></ion-button></ion-col>
+  <ion-col  *ngIf="showAddButtonInPagination" size="1"><ion-button (click)="create()"><ion-icon name="add"></ion-icon></ion-button></ion-col>
+  <ion-col size="1"><ion-select
+    aria-label="elementi per pagina"
+    placeholder="seleziona"
+    (ionChange)="setNewLimit($event)"
+  >
+  <ion-select-option value=10>10</ion-select-option>
+  <ion-select-option value=20>20</ion-select-option>
+  <ion-select-option value=4>4</ion-select-option>
+</ion-select></ion-col>
+</ion-row>
+  </ion-grid>
+  <ion-fab  *ngIf="!showAddButtonInPagination" mini slot="fixed" horizontal="end" vertical="bottom">
+    <ion-fab-button *ngIf="!hydeAddIcon" size="small">
+      <ion-icon name="add" (click)="create()"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</div>
+  </div>
+
+

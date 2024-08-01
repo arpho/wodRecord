@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{"addOperator"|translate}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()" shape="round">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <app-dynamic-form [questions]="formFields" (interactiveSubmit)="filter($event)" (singleSubmit)="submit($event)" [submitText]="submitText" [hideSubmitButton]="hideSubmitButton"></app-dynamic-form>
+<ion-button  *ngIf="emailPresent" disabled={{!emailPresent}} (click)="addOperator()"> <ion-icon name="add-circle-outline"></ion-icon></ion-button>
+</ion-content>

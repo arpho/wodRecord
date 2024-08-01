@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{title}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-toggle ion-toggle-text (ionChange)="changeStatus($event)"  ng-model="status"></ion-toggle>
+  <ion-icon name="eye" *ngIf="!status" color="primary" size="large"></ion-icon>
+  <ion-icon name="create" *ngIf="status" color="warning" size="large"></ion-icon>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row><!-- 
+      <ion-segment [(ngModel)]="i_tab" (ionChange)="setTitle()" >
+        <ion-segment-button value="t1" >
+          <ion-label>Edit</ion-label>
+          <ion-icon name="create"></ion-icon>
+        </ion-segment-button>
+        <ion-segment-button value="t2">
+          <ion-label>Watch</ion-label>
+          <ion-icon name="eye"></ion-icon>
+        </ion-segment-button>
+       
+      </ion-segment> -->
+    </ion-row>
+  </ion-grid>
+  <div *ngIf="status"> 
+    <app-dynamic-form
+    [questions]="formFields" 
+    (interactiveSubmit)="filter($event)"
+    (singleSubmit)="submit($event)"
+    [submitText]="submitText">
+   </app-dynamic-form> 
+    </div>
+    <div *ngIf="!status"> 
+      <app-view-patient [patient]="patient"></app-view-patient>
+      <app-list-injectable-items
+[itemsList]="itemsList"
+ [editPage]="editPage"
+ [createPage]="createPage"
+ (item2Delete)="deleteItem($event)"
+ [titleFactory]="titleFactory"
+ [itemViewerComponent]="itemViewerComponent"
+ [listHead]="listHead"
+></app-list-injectable-items>
+      </div>
+
+</ion-content>

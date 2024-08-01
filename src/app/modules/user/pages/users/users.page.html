@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button
+        class="button-clear ion-chevron-left"
+        defaultHref="/home"
+      ></ion-back-button>
+    </ion-buttons>
+    <ion-title>utenti</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card class="welcome-card">
+    <ion-card-header>
+      <ion-card-subtitle>Get Started</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content> </ion-card-content>
+  </ion-card>
+
+
+  <app-list-injectable-items
+[itemsList]="usersList"
+ [editPage]="editModalPage"
+ [itemViewerComponent]="itemViewerComponent"
+ [listHead]="listHead"
+></app-list-injectable-items>
+</ion-content>

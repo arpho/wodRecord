@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>edit OPerator</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <app-dynamic-form
+  [questions]="formFields"
+   (interactiveSubmit)="filter($event)"
+    (singleSubmit)="submit($event)"
+   [submitText]="submitText"
+   ></app-dynamic-form>
+
+</ion-content>

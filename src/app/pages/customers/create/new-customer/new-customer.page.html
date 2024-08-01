@@ -1,0 +1,14 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>newCustomer</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <app-dynamic-form [questions]="formFields" (interactiveSubmit)="filter($event)" (singleSubmit)="submit($event)" [submitText]="submitText"></app-dynamic-form>
+</ion-content>

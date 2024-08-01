@@ -1,0 +1,7 @@
+<form [formGroup]="enablingCodeForm">
+    <input type="text" [formControlName]="'code'" class="question">
+    <ion-button (click)="execute()"><ion-icon name="code-working"></ion-icon> </ion-button>
+    <section style="color:red" *ngIf="!isValid()">
+     codice già in uso
+    </section>
+    </form>

@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>listProvider</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <app-grid-injectable-items 
+  [editPage]="editPage"
+  [createPage]="createPage"
+  (item2Delete)="deleteItem($event)"
+  [titleFactory]="titleFactory"
+  [itemViewerComponent]="itemViewerComponent"
+  [hydeFab]="hydeFab"
+  [headers]="headers"
+  [buttons]="buttons"
+  [service]="service"
+  (move2nextPage)="move2nextPage()"
+  (move2previousPage)="move2previousPage()"
+  [navigationText]="navigationText"
+  (move2lastPage)="move2lastPage()"
+  (move2firstPage)="move2firstPage()"
+ ></app-grid-injectable-items>
+</ion-content>

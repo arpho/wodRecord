@@ -1,0 +1,3 @@
+
+
+  <ion-row><ion-col>{{item?.$firstName|async}}</ion-col><ion-col>{{item?.$lastName|async}}</ion-col><ion-col>{{item?.provider}}</ion-col><ion-col>{{item?.$creationDate|async|date:'short'}}</ion-col><ion-col>{{hasLeft()}}</ion-col><ion-col>{{hasRight()}}</ion-col><ion-col>{{item?.version}}</ion-col></ion-row>

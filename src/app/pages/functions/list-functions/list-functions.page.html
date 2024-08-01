@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>listFunctions</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngIf="showCard">
+    <ion-card-header>
+      <ion-card-title>function's key</ion-card-title>
+      <ion-card-subtitle>key to copy</ion-card-subtitle>
+    </ion-card-header>
+  
+    <ion-card-content>
+      {{functionKey}}
+        </ion-card-content>
+  </ion-card>
+  <app-grid-injectable-items
+  [itemsList]="itemsList"
+   [editPage]="editPage"
+   [createPage]="createPage"
+   (item2Delete)="deleteItem($event)"
+   [titleFactory]="titleFactory"
+   [itemViewerComponent]="itemViewerComponent"
+   [headers]="headers"
+   [buttons]="buttons"
+   [hydeFab]="hydeFab"
+   [listHead]="listHead"
+   [service] = "service"
+   [hydePagination]="hydePagination"
+  ></app-grid-injectable-items> 
+</ion-content>

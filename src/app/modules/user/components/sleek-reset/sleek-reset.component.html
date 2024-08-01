@@ -1,0 +1,32 @@
+<div class="login-group">
+  <form class="login-form"[formGroup]="resetForm" (ngSubmit)="onSubmit()" novalidate >
+    <p class="login-text">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-lock fa-stack-1x"></i>
+      </span>
+    </p>
+    <ion-item  >
+      <ion-label stacked>Email</ion-label>
+      <ion-input formControlName="email" class="login-username" 
+       color="dark" type="email" placeholder="il tuo indirizzo email" [class.invalid]="!resetForm.controls['email'].valid &&
+    resetForm.controls['email'].touched">
+    </ion-input>
+    </ion-item>
+  
+   
+  
+    <ion-button (click)="resetPassword(resetForm)" expand="block" color="dark" [disabled]="!resetForm.valid" class="login-submit">
+  {{ "renewPassword"|translate}}
+    </ion-button>
+  </form>
+  
+  
+  
+  
+  
+  <div class="underlay-photo"></div>
+  </div>
+  <div class="underlay-black"></div> 
+  
+  

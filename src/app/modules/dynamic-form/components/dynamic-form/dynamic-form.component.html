@@ -1,0 +1,33 @@
+<div>
+  <form (ngSubmit)="onSubmit()" [formGroup]="form">
+    <div *ngFor="let question of questions" class="form-row">
+      <app-question [question]="question" [form]="form"></app-question>
+    </div>
+
+      <ion-button
+      *ngIf="!hideSubmitButton && !submitText"
+        type="submit"
+        [disabled]="!form?.valid"
+        expand="block"
+        href="distribuzione-create"
+      >
+      
+        <ion-icon name="checkmark-circle" ></ion-icon>
+     
+      </ion-button>
+
+      <ion-button
+      *ngIf="!hideSubmitButton && submitText"
+        type="submit"
+        [disabled]="!form?.valid"
+        expand="block"
+        href="distribuzione-create"
+      >
+      
+        {{submitText}}
+     
+      </ion-button>
+  </form>
+
+  <div *ngIf="payLoad" class="form-row"></div>
+</div>

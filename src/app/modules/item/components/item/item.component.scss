@@ -1,0 +1,31 @@
+p.note {
+    font-style: italic;
+    color: black;
+    background-color: lightgray;
+    font-size: 0.7em;
+    top: 17px;
+    position: relative;
+}
+
+article {
+    display: flex;
+    color: black;
+    border-radius: 1em;
+    background-color: hsl(225deg 22% 96%);
+    border: solid #f4f5f8 1px;
+    flex: 1 1 0%;
+    flex-direction: inherit;
+    align-items: inherit;
+    align-self: stretch;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+
+
+
+h1.itemTitle {
+  font-size: 0.8rem;
+  width: 14rem;
+  color: black;
+}

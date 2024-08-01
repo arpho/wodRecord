@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-buton  (click)="changeLanguage()">
+        <ion-icon name="language-outline"></ion-icon>
+      </ion-buton>
+    </ion-buttons>
+    <ion-title>{{"signup"|translate}}</ion-title>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+
+  <app-dynamic-form [questions]="usersFields" (interactiveSubmit)="filter($event)" (singleSubmit)="submit($event)"></app-dynamic-form>
+</ion-content>

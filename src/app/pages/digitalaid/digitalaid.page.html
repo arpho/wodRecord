@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar>
+
+    <ion-buttons slot="end">
+
+      <ion-buton (click)="changeLanguage()">
+        <ion-icon name="language-outline"></ion-icon>
+      </ion-buton>
+      <ion-button (click)="logout()">
+        {{"Salve"|translate}} {{userName}}
+        <ion-icon name="log-out"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>digitalaid</ion-title>
+    <ion-button *ngIf="isProvider()" ><ion-icon name="business"></ion-icon></ion-button>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+  
+  <div >
+  <app-list-injectable-items [itemsList]="itemsList" [editPage]="editPage" [createPage]="createPage"
+    (item2Delete)="deleteItem($event)" [titleFactory]="titleFactory" [itemViewerComponent]="itemViewerComponent"
+    [listHead]="listHead" [service]="Patients"></app-list-injectable-items>
+  <app-menu [service]="functionsService"></app-menu>
+  </div>
+  <ion-button (click)="test()"></ion-button>
+  <a href="http://www.testinsole.designo.cc" target="blank">test insole</a>
+
+</ion-content>
+<ion-spinner *ngIf="spinner"></ion-spinner>
+<ion-footer>
+  <ion-row>
+    <ion-col no-padding>
+      <button no-margin ion-button full large color="primary"><ion-icon *ngIf="locked"
+          name="lock-closed-outline"></ion-icon>
+        <ion-icon *ngIf="!locked" name="lock-open-outline"></ion-icon>
+        <ion-icon name="home" *ngIf="localKempelen"></ion-icon>
+        <ion-icon name="earth" *ngIf="!localKempelen"></ion-icon>
+      </button>
+    </ion-col>
+
+  </ion-row>
+   <ion-card *ngIf="showCard">
+    <ion-card-header>
+      <ion-card-title>Token</ion-card-title>
+      <ion-card-subtitle>token to copy</ion-card-subtitle>
+    </ion-card-header>
+  
+    <ion-card-content>
+      {{token}}
+        </ion-card-content>
+  </ion-card>
+  <ion-button (click)="presentToken()"><ion-icon name="clipboard"></ion-icon></ion-button>
+  <a href="http://www.testinsole.designo.cc" target="blank">test insole</a>
+</ion-footer>

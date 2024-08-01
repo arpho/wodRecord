@@ -1,0 +1,18 @@
+
+<ion-element>
+  <ion-col class='my-thin-col'>
+  <ion-icon name="{{showIcon()}}"></ion-icon>
+  </ion-col>
+  <ion-col class='my-thin-col title' grid-cols="25">
+
+    {{showTitle()}}
+  </ion-col>
+  <ion-col class='my-thin-col key' grid-cols="25%">
+    {{showKey()}}
+  </ion-col>
+  <ion-col *ngIf="item.note" class='my-thin-col note' grid-cols="25%">
+    {{showNote()}}
+  </ion-col>
+  <ion-col *ngIf="item.url" class="my-thin-col url" grid-cols="25%"></ion-col>
+  {{showUrl()}}
+  </ion-element>

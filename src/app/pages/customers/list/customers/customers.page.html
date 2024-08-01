@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{"Customers"|translate}}</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button class="button-clear ion-chevron-left" defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <div slot="end">
+    <ion-icon name="calendar" (click)="expiringCustomers()"></ion-icon>
+      <app-items-filter [filterFields]="filterFields"
+      (filterFunction)="setFilter($event)"></app-items-filter>
+    </div>
+    <app-change-language slot="start"></app-change-language>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+   <!-- <app-page-items-list
+   [service]='service'
+   [icon4quickFunction]="icon4quickFunction"
+   [quickFunction]="quickFunction"
+   [filterFunction]="filterFunction"
+   [createModalPage]="createModalPage"
+   [editModalPage]="editModalPage">
+    </app-page-items-list>  -->
+
+     <app-grid-injectable-items
+    [buttons] = "buttons"
+[hydeFab]="hydeFab"
+[titleFactory]="titleFactory"
+[itemViewerComponent]="itemViewerComponent"
+[listHead]="listHead"
+[headers]="headers"
+[hydeFab]="hydeFab"
+[service] = "service"
+[hydePagination] = "hydePagination"
+[buttons]="buttons"
+[emptyText]="emptyText"
+(move2nextPage)="move2nextPage()"
+(move2previousPage)="move2previousPage()"
+[navigationText]="navigationText"
+></app-grid-injectable-items>  
+</ion-content>

@@ -1,0 +1,11 @@
+<ion-row class="dataGrid" ><ion-col>
+        <p class="firstName">{{item?.$firstName|async}}</p>
+    </ion-col><ion-col>
+        <p class="lastName">{{item?.$lastName|async}}</p>
+    </ion-col><ion-col>
+        <p class="creationDate">{{item?.creationDate|date:'short'}}</p>
+    </ion-col>
+    <ion-col>
+        <ion-button (click)="doAction()"><ion-icon name="send"></ion-icon></ion-button>
+    </ion-col>
+</ion-row>
