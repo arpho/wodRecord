@@ -11,7 +11,6 @@ import { configs } from "src/app/configs/configs";
 import "firebase/firestore";
 import { initializeApp } from "firebase/app";
 import { credentials } from "src/app/configs/credentials";
-import { PatientsService } from "src/app/services/patients/patients.service";
 import { DocumentData, DocumentReference, Firestore } from "@google-cloud/firestore";
 
 import { collection, deleteDoc, doc, getDoc, getDocs, getFirestore, query, setDoc, addDoc, onSnapshot,where, updateDoc } from "firebase/firestore";
@@ -130,14 +129,14 @@ export class UsersService implements ItemServiceInterface, OnInit {
   }
   public itemsListReference: DatabaseReference;
   items_list: Array<UserModel> = []
-  $items: BehaviorSubject<Array<UserModel>> = new BehaviorSubject([])
+  $items: BehaviorSubject<Array<ItemModelInterface>> = new BehaviorSubject<Array<ItemModelInterface>>([])
   _loggedUser: BehaviorSubject<UserModel> = new BehaviorSubject(new UserModel)
   loggedUser: Observable<UserModel> = this._loggedUser.asObservable()
-  readonly items: Observable<Array<UserModel>> = this.$items.asObservable()
+  readonly items: Observable<Array<ItemModelInterface>> = this.$items.asObservable()
   static loggedUser: UserModel
   db: any
   usersRef
-  constructor(private patients: PatientsService,
+  constructor(
     private auth:AuthService,
     private router: Router) {
     this.loadDataAndPublish()
@@ -149,6 +148,13 @@ export class UsersService implements ItemServiceInterface, OnInit {
 
 
 
+  }
+  $serviceWorking?: BehaviorSubject<boolean> | undefined;
+  getItemFromSubcollection?(fatherKey: string, itemKey: string): Promise<ItemModelInterface> {
+    throw new Error("Method not implemented.");
+  }
+  fetchItems(querySet?: any): Promise<ItemModelInterface[]> {
+    throw new Error("Method not implemented.");
   }
 
   categoriesService?: ItemServiceInterface;
@@ -218,11 +224,7 @@ getToken(){
   }
 
   async getItem(key: string) {
-    if(key){
-    const ref = doc(this.db, this.collection, key)
-
-    var docSnap = await getDoc(ref)}
-    return new UserModel(docSnap?.data())
+    return new UserModel((await getDoc(doc(this.db, this.collection, key?key:''))).data())
   }
 
   FetchRole(level: number) {

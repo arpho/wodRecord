@@ -74,9 +74,10 @@ export class PasswordFieldComponent implements OnInit, ControlValueAccessor, Val
     if (this.retypePassword) {
       if (password.password != password.retype) {
         return { passwordMismatch: {} }
-
       }
     }
+    return null
+   
   }
   registerOnValidatorChange?(fn: () => void): void {
     this.onValidationChange = fn

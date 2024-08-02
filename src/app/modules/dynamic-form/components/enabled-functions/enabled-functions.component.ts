@@ -11,6 +11,7 @@ import { title } from 'process';
 
 @Component({
   selector: 'app-enabled-functions',
+  standalone:true,
   templateUrl: './enabled-functions.component.html',
   styleUrls: ['./enabled-functions.component.scss'],
   providers: [{

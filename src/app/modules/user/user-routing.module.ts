@@ -1,14 +1,15 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
-import { AuthGuard } from "./services/authguard.service";
-import { RoleGuardService } from './services/role-guards.service';
+import { editProfileGuard, loggedGuard, roleGuard } from "./services/canActivate";
+/* import { AuthGuard } from "./services/authguard.service";
+import { RoleGuardService } from './services/role-guards.service'; */
 // import { CanActivate } from "@angular/router/src/utils/preactivation";
 
 export const routes: Routes = [
   {
     path: "profile",
     loadChildren: () => import('./pages/profile/profile.module').then(m => m.ProfilePageModule),
-    canActivate: [AuthGuard]
+    canActivate: [loggedGuard()]
   },
   {
     path: "signup",
@@ -27,17 +28,17 @@ export const routes: Routes = [
   {
     path: "profile",
     loadChildren: () => import('./pages/profile/profile.module').then(m => m.ProfilePageModule),
-    canActivate: [AuthGuard]
+    canActivate: [loggedGuard()]
   },
   {
     path: "users",
     loadChildren: () => import('./pages/users/users.module').then(m => m.UsersPageModule),
-    canActivate: [AuthGuard, RoleGuardService]
+   canActivate: [roleGuard(2)]
   },
   {
     path: "edit-user/:key",
     loadChildren: () => import('./pages/edit-user/edit-user.module').then(m => m.EditUserPageModule),
-    canActivate: [AuthGuard]
+    canActivate: [loggedGuard,editProfileGuard()]
   },
   {
     path: "not-authorized/:message",

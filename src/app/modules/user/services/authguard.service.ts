@@ -3,7 +3,6 @@ import { getAuth, getIdToken, onAuthStateChanged } from "firebase/auth";
 import { initializeApp } from "firebase/app"
 import { ActivatedRouteSnapshot, RouterStateSnapshot, Router } from "@angular/router";
 import { Observable } from "rxjs";
-import firebase from 'firebase/app';
 import "firebase/auth";
 import { UsersService } from "./users.service";
 import { UserModel } from "../models/userModel";

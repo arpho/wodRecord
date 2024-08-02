@@ -13,6 +13,7 @@ import { IonselectAutoscrollDirective } from './directives/ionselect-autoscroll.
 import { EnabledFunctionsComponent } from './components/enabled-functions/enabled-functions.component';
 import { AvailableFunctionViewerComponent } from './components/available-function-viewer/available-function-viewer.component';
 import { ListFieldComponent } from './components/list-question/list-field.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [QuestionFormComponent,
@@ -28,6 +29,7 @@ import { ListFieldComponent } from './components/list-question/list-field.compon
      
   imports: [
     CommonModule,
+    TranslateModule,
     IonicModule.forRoot(),
     ReactiveFormsModule,
     ItemModule,

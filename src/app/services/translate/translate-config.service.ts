@@ -36,6 +36,6 @@ export class TranslateConfigService {
   }
 
   getCurrentLang() {
-    return localStorage.getItem('lang').substring(0, 2);
+    return localStorage.getItem('lang')?.substring(0, 2);
   }
 }

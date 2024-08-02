@@ -20,8 +20,8 @@ export class RoleGuardService  {
     // this will be passed from the route config
     // on the data property
     console.log('role guard',route)
-    const maximumRoleLevel = this.Users.FetchRole(route.data.maximumRoleLevel);
-    const locked = route.data.locked as boolean
+    const maximumRoleLevel = this.Users.FetchRole(route.data['maximumRoleLevel']);
+    const locked = route.data['locked'] as boolean
     console.log("minimum role",maximumRoleLevel)
     const firebaseApp = firebase.initializeApp(credentials.firebase)
     const auth = getAuth(firebaseApp)
@@ -49,12 +49,13 @@ export class RoleGuardService  {
         }
         // tslint:disable-next-line: curly
         if(configs.locked){ // se locked we check claims.role
-        if (token.claims.level <= maximumRoleLevel.value) return true;
+        if (token.claims['level'] <= maximumRoleLevel.value) return true;
         else {
           const message =
             `per accedere a questa sezione devi godere almeno dei privilegi di ${maximumRoleLevel.key} 
              per chiarimenti rivolgiti all'amministratore`;
           this.router.navigate(["users/not-authorized", message]);
+          return "users/not-authorized"
         }}
         else{ // app is open we pass
           return true
