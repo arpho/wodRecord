@@ -27,7 +27,7 @@ export const editProfileGuard = ()=>async (route:ActivatedRouteSnapshot,state:Ro
     const  users = inject(UsersService)
     const router = inject(Router)
     const loggedUser= await users.fetchLoggedUser()
-    return !configs.locked?true:loggedUser.key == route.data['key']
+    return !configs.locked?true:loggedUser.key == route.data['key']||Number(loggedUser.role.value)<=2
 
 }
 

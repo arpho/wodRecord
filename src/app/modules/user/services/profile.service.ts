@@ -17,7 +17,7 @@ export class ProfileService {
     onAuthStateChanged(auth,user => {
       if (user) {
         console.log('user',user.uid)
-        this.currentUser = auth.currentUser;
+        this.currentUser = auth.currentUser!;
         this.userProfileReference = firebase.database().ref(`/${this.reference}/${user.uid}/`);
 
         console.log('profile',this.userProfileReference)
@@ -46,14 +46,14 @@ console.log('getting usr profile reference')
   updateEmail(newEmail: string, password: string): Promise<any> {
     const auth = getAuth()
     const user = auth.currentUser
-    const out = updatePassword(user,password)
+    const out = updatePassword(user!,password)
 
    
-    const credential = EmailAuthProvider.credential(auth.currentUser.email,password)
+    const credential = EmailAuthProvider.credential(auth.currentUser?.email!,password)
    
-     return  reauthenticateWithCredential(auth.currentUser,credential)
+     return  reauthenticateWithCredential(auth.currentUser!,credential)
       .then(() => {
-        this.updateEmail(auth.currentUser.email,newEmail).then(() => {
+        this.updateEmail(auth.currentUser?.email!,newEmail).then(() => {
           this.userProfileReference.update({ email: newEmail });
         });
       })
@@ -63,24 +63,29 @@ console.log('getting usr profile reference')
   }
 
   updatePassword(newPassword: string, oldPassword: string): Promise<any> {
-
-    const auth = getAuth()
-    const user = auth.currentUser
-    
-    //const cred = 
-    const credential: firebase.auth.AuthCredential = firebase.auth.EmailAuthProvider.credential(
-      this.currentUser.email,
-      oldPassword
-    );
-    const out = updatePassword(user,newPassword)
-    
-    return 
-      reauthenticateWithCredential(auth.currentUser,credential)
+    return new Promise((resolve,reject)=>{
+      const auth = getAuth()
+      const user = auth.currentUser
+      
+      //const cred = 
+      const credential: firebase.auth.AuthCredential = firebase.auth.EmailAuthProvider.credential(
+        this.currentUser?.email!,
+        oldPassword
+      );
+      const out = updatePassword(user!,newPassword)
+      reauthenticateWithCredential(auth.currentUser!,credential)
       .then(() => {
+        resolve(out)
       
       })
       .catch(error => {
+        reject(error)
         console.error(error);
       });
+    })
+   
+    
+    
+    
   }
 }

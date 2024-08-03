@@ -35,7 +35,7 @@ export class AuthService {
       const userCredential = await createUserWithEmailAndPassword(auth, user.email, user.password['password'])
       if (next) {
         next(userCredential)
-        await sendEmailVerification(auth.currentUser)
+        await sendEmailVerification(auth.currentUser!)
       }
     }
     catch (errorTrown) {
@@ -53,7 +53,7 @@ export class AuthService {
     const auth = getAuth()
     try{
       onAuthStateChanged(auth,async user=>{
-        resolve(user?.uid)
+        resolve(user?.uid!)
 
       })
 
@@ -76,7 +76,7 @@ export class AuthService {
       const auth = getAuth()
       try{
       onAuthStateChanged(auth,async user=>{
-        resolve((await user?.getIdTokenResult())?.token)
+        resolve((await user?.getIdTokenResult())?.token!)
 
       })
     }
@@ -92,7 +92,7 @@ async getToken(next:(token:string)=>void){
       const auth = getAuth()
       let token =""
       onAuthStateChanged(auth,async user=>{
-        token = (await user.getIdTokenResult()).token
+        token = (await user?.getIdTokenResult()!).token
         console.log("got token",token)
         next(token)
       })

@@ -69,7 +69,7 @@ export class FunctionsService implements ItemServiceInterface {
 
     return addDoc(collection(this.db, this.collection), provider.serialize())
   }
-  fetchItems?(querySet?: any): Promise<FunctionModel[]> {
+  fetchItems(querySet?: any): Promise<ItemModelInterface[]> {
     return new Promise(async (resolve, reject) => {
 
       if (!querySet) {

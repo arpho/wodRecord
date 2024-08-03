@@ -16,11 +16,13 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { CreateFunctionsPageModule } from './pages/functions/create-functions/create-functions.module';
 import { EnabledFunctionsComponent } from './modules/dynamic-form/components/enabled-functions/enabled-functions.component';
+import { ListInjectableItemsComponent } from './modules/item/components/list-injectable-items/list-injectable-items.component';
 
 @NgModule({
   declarations: [
     AppComponent,
   LocationViewerComponent,
+  ListInjectableItemsComponent,
 
 ],
   imports: [
@@ -31,9 +33,8 @@ import { EnabledFunctionsComponent } from './modules/dynamic-form/components/ena
      EnabledFunctionsComponent,
      DynamicFormModule,
    /*      ItemModule,
-        HelpersModule,
-        UserModule */
-
+        HelpersModule,*/
+        UserModule,
         TranslateModule.forRoot({
           loader: {
             provide: TranslateLoader,
