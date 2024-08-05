@@ -58,6 +58,6 @@ export class QuestionFormComponent implements OnInit, OnChanges {
   }
 
   getIcon() {
-    return this.form.get(this.question.key).value ? String(this.question.iconTrue) : String(this.question.iconFalse)
+    return this.form.get(this.question.key)?.value ? String(this.question.iconTrue) : String(this.question.iconFalse)
   }
 }

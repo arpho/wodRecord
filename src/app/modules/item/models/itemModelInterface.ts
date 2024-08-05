@@ -1,7 +1,7 @@
 // tslint: disable:semicolon
 import { Value } from './value';
 import { ItemServiceInterface } from './ItemServiceInterface';
-import { AlertOptions, Page } from '@ionic/core';
+import { AlertOptions} from '@ionic/core';
 import { ItemFilterOPtions } from './ItemFIlterOptions';
 import { QuickAction } from './QuickAction';
 import { MenuItem } from '../../helpers/menu/models/MenuItemInterface';

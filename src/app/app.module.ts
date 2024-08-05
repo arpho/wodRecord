@@ -15,7 +15,6 @@ import { LocationViewerComponent } from './components/viewers/location-viewer/lo
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { CreateFunctionsPageModule } from './pages/functions/create-functions/create-functions.module';
-import { EnabledFunctionsComponent } from './modules/dynamic-form/components/enabled-functions/enabled-functions.component';
 import { ListInjectableItemsComponent } from './modules/item/components/list-injectable-items/list-injectable-items.component';
 
 @NgModule({
@@ -30,10 +29,9 @@ import { ListInjectableItemsComponent } from './modules/item/components/list-inj
     IonicModule.forRoot(),
      AppRoutingModule,
      CreateFunctionsPageModule,
-     EnabledFunctionsComponent,
      DynamicFormModule,
-   /*      ItemModule,
-        HelpersModule,*/
+         ItemModule,
+        HelpersModule,
         UserModule,
         TranslateModule.forRoot({
           loader: {
