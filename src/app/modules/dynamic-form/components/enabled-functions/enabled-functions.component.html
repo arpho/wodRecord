@@ -1,8 +1,0 @@
-<ion-list>
-  <ion-item  *ngFor="let item of loadedEnabledFunctions | async; let i=index">
-  <article *ngIf="(loadedEnabledFunctions|async)?.length!=0">
-    <h1>{{item.title}}</h1> {{"finoal"|translate}}{{showDate(item?.endTime)}} <ion-fab  vertical="top"  horizontal="end"><ion-fab-button (click)="remove(i)" size="small"  color="danger"><ion-icon name="trash"></ion-icon></ion-fab-button></ion-fab>
-  </article>
-  </ion-item>
-  </ion-list>
-<ion-button (click)="addFunction()"><ion-icon name="add"></ion-icon></ion-button>

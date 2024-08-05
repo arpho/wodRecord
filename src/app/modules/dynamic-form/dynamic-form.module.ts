@@ -10,7 +10,6 @@ import { PasswordFieldComponent } from './components/password-field/password-fie
 import { EmailFieldComponent } from './components/email-field/email-field.component';
 import { CodeGeneratorComponent } from './components/formFields/code-generator/code-generator.component';
 import { IonselectAutoscrollDirective } from './directives/ionselect-autoscroll.directive';
-import { EnabledFunctionsComponent } from './components/enabled-functions/enabled-functions.component';
 import { AvailableFunctionViewerComponent } from './components/available-function-viewer/available-function-viewer.component';
 import { ListFieldComponent } from './components/list-question/list-field.component';
 import { TranslateModule } from '@ngx-translate/core';
@@ -24,7 +23,7 @@ import { TranslateModule } from '@ngx-translate/core';
      CodeGeneratorComponent,
      IonselectAutoscrollDirective,
      ListFieldComponent,
-     EnabledFunctionsComponent,
+     //EnabledFunctionsComponent,
     AvailableFunctionViewerComponent],
      
   imports: [
@@ -40,7 +39,7 @@ import { TranslateModule } from '@ngx-translate/core';
     QuestionFormComponent,
     DynamicFormComponent,
     IonselectAutoscrollDirective,
-    EnabledFunctionsComponent,
+    //EnabledFunctionsComponent,
     ListFieldComponent,
     AvailableFunctionViewerComponent
   ],

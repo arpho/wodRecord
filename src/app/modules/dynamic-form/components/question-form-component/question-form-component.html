@@ -31,10 +31,7 @@
       </ion-checkbox>
       <p>{{question?.text}}</p>
     </section>
-    <section *ngSwitchCase="'enabledFunctions'" class="question">
-      <app-enabled-functions class='question' [(ngModel)]="question.value" [enabledFunctions]="question?.value"
-        [formControlName]="question?.key" [id]="question.key"></app-enabled-functions>
-    </section>
+
 
     <section *ngSwitchCase="'password'">
 
