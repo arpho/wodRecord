@@ -14,7 +14,6 @@ import { servicesVersion } from 'typescript';
 import { SwitchQuestion } from 'src/app/modules/item/models/question-switch';
 import { CheckBoxQuestion } from 'src/app/modules/dynamic-form/models/question-checkBox';
 import { configs } from 'src/app/configs/configs';
-import { translate } from '@ngneat/transloco';
 import { TranslateService } from '@ngx-translate/core';
 import { TranslateConfigService } from 'src/app/services/translate/translate-config.service';
 import { first } from 'rxjs/operators';

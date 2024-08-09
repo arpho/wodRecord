@@ -11,7 +11,7 @@ export interface QuestionProperties<T> {
     retypePassword?:boolean
     type?: string
     controlType?: string;
-    validator?:(control: AbstractControl)=> ValidationErrors
+    validator?:(control: AbstractControl)=> ValidationErrors |null
     asyncValidator?:AsyncValidatorFn[]
     disabled?:boolean;
     filterFunction?: (value: ItemModelInterface | string, item?: ItemModelInterface | any) => boolean

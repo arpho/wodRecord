@@ -54,6 +54,7 @@ export class DynamicFormComponent implements OnInit,OnChanges {
     this.form.valueChanges.subscribe(data =>{
       this.changes.emit(data)
     })
+    
     if (this.questions?.filter(v => v.key === "location").length > 0) {
       this.form.addControl("address", new UntypedFormControl()); // input-geolocation usa un control in più
     }
@@ -61,6 +62,10 @@ export class DynamicFormComponent implements OnInit,OnChanges {
     this.form.valueChanges.subscribe(v => {
       this.interactiveSubmit.emit(v);
     });
+  }
+
+  isFormValid(){
+    return this.form.valid
   }
 
   ngOnInit() {

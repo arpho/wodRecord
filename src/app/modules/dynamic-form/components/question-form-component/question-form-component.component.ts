@@ -36,6 +36,14 @@ export class QuestionFormComponent implements OnInit, OnChanges {
   public value: any;
   @Input() question: QuestionBase<any>;
   @Input() form: UntypedFormGroup;
+  /**
+   * @description converts the type of question.key from string|undefined to string|null  
+   * @param key 
+   * @returns 
+   */
+  converterUndefined2null(key:string|undefined){
+    return key? key: null
+  }
 
   ngOnInit() {
     this.value = this.question ? this.question.value : undefined;

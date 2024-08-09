@@ -7,7 +7,7 @@
       <ion-button
       *ngIf="!hideSubmitButton && !submitText"
         type="submit"
-        [disabled]="!form?.valid"
+        [disabled]="!isFormValid()"
         expand="block"
         href="distribuzione-create"
       >
