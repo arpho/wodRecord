@@ -22,8 +22,18 @@ import { QuestionBase } from '../../models/question-base';
   
 })
 export class QuestionFormComponent implements OnInit, OnChanges {
+/**
+ * 
+ * @param value valore da convertire in booleano puro
+ * @returns  Boolean
+ */
+convert2boolean(value:boolean|undefined){
+  return  Boolean(value)
+}
 
-
+convert2string(value:string|undefined){
+  return value?value:""
+}
 
   constructor(private fb: UntypedFormBuilder) { }
 

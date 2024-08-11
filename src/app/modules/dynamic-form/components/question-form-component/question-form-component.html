@@ -11,11 +11,7 @@
         autoGrow="question?.autoGrow" [value]="question?.value"></ion-textarea>
     </section>
 
-    <section *ngSwitchCase="'code'">
-      <app-code-generator class='question' [formControlName]="converterUndefined2null(question?.key)" [id]="question?.key"
-        [code]="question?.value" [generatorFunction]="question?.generatorFunction"
-        [validator]="question?.validator"></app-code-generator>
-    </section>
+
 
     <section *ngSwitchCase="'email'">
 
@@ -36,7 +32,7 @@
     <section *ngSwitchCase="'password'">
 
       <app-password-field class='question' [formControlName]="converterUndefined2null(question?.key)"
-        [retypePassword]="question?.retypePassword"></app-password-field>
+        [retypePassword]="convert2boolean(question?.retypePassword)"></app-password-field>
     </section>
 
     <section *ngSwitchCase="'address'">
@@ -63,8 +59,8 @@
 
     <section *ngSwitchCase="'itemSelector'" class="question" [formControlName]="converterUndefined2null(question?.key)" [id]="question?.key"
       ngDefaultControl>
-      <app-selector-items [formControlName]="converterUndefined2null(question?.key)" [id]="question?.key" [text]="question?.text"
-        [service]="question?.service" (selectedItem)="question.selectedItem($event)"
+      <app-selector-items [formControlName]="converterUndefined2null(question?.key)" [id]="convert2string(question?.key)" [text]="convert2string(question?.text)"
+        [service]="question.service" (selectedItem)="question.selectedItem($event)"
         [sorterFunction]="question?.sorterFunction" [filterFunction]="question?.ItemsFilterFunction"
         [createPopup]="question?.createPopup" [item]="question?.value" [service]="question?.service"
         [data4Modal]="question?.data4Modal" [value]="question?.value"

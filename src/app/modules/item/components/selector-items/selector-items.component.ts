@@ -36,14 +36,14 @@ export class SelectorItemsComponent implements OnInit, OnChanges, ControlValueAc
   @Input() text: string
   // tslint:disable: no-input-rename
   // tslint:disable-next-line: variable-name
-  @Input('value') _value = undefined;
+  @Input('value') _value:ItemModelInterface|undefined;
   @Input() item: ItemModelInterface
   @Input() service: ItemServiceInterface
   @Output() selectedItem: EventEmitter<ItemModelInterface> = new EventEmitter()
   @Input() createPopup
   @Input() data4Modal: any
   @Input() filterFunction: (item: ItemModelInterface) => boolean
-  @Input() sorterFunction: (a: ItemModelInterface, b: ItemModelInterface) => number
+  @Input() sorterFunction: (a: ItemModelInterface, b: ItemModelInterface) => number|undefined
   // @Input() formControlName: string
 
   @HostBinding('attr.id')
@@ -52,7 +52,7 @@ export class SelectorItemsComponent implements OnInit, OnChanges, ControlValueAc
   @Input()
   set id(value: string) {
     this._ID = value;
-    this.externalId = null;
+    this.externalId = '';
   }
   get id() {
     return this._ID
@@ -62,7 +62,7 @@ export class SelectorItemsComponent implements OnInit, OnChanges, ControlValueAc
   writeValue(value: ItemModelInterface): void {
     if (value !== undefined) {
       this.item = value
-      this.value = value
+      this.value = value ?? this.service.getEmptyItem()
     }
     this.onChange(value)
   }
@@ -95,12 +95,12 @@ export class SelectorItemsComponent implements OnInit, OnChanges, ControlValueAc
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    if (changes.sorterFunction) {
-      this.sorterFunction = changes.sorterFunction.currentValue
+    if (changes['sorterFunction']) {
+      this.sorterFunction = changes['sorterFunction'].currentValue
     }
 
-    if (changes.filterFunction) {
-      this.filterFunction = changes.filterFunction.currentValue
+    if (changes['filterFunction']) {
+      this.filterFunction = changes['filterFunction'].currentValue
     }
   }
   async action() {
