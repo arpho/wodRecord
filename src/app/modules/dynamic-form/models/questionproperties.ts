@@ -14,5 +14,5 @@ export interface QuestionProperties<T> {
     validator?:(control: AbstractControl)=> ValidationErrors |null
     asyncValidator?:AsyncValidatorFn[]
     disabled?:boolean;
-    filterFunction?: (value: ItemModelInterface | string, item?: ItemModelInterface | any) => boolean
+    filterFunction?:( (value: ItemModelInterface | string, item?: ItemModelInterface | any) => boolean)|undefined
 }

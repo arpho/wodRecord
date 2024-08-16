@@ -42,8 +42,8 @@ export class SelectorItemsComponent implements OnInit, OnChanges, ControlValueAc
   @Output() selectedItem: EventEmitter<ItemModelInterface> = new EventEmitter()
   @Input() createPopup
   @Input() data4Modal: any
-  @Input() filterFunction: (item: ItemModelInterface) => boolean
-  @Input() sorterFunction: (a: ItemModelInterface, b: ItemModelInterface) => number|undefined
+  @Input() filterFunction: ( (value: ItemModelInterface | string, item?: ItemModelInterface | any) => boolean)|undefined
+  @Input() sorterFunction:  ((a: ItemModelInterface, b: ItemModelInterface) => number | undefined) | undefined
   // @Input() formControlName: string
 
   @HostBinding('attr.id')

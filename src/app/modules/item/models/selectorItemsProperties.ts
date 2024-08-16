@@ -8,7 +8,7 @@ export interface SelectorProperties extends QuestionProperties<ItemModelInterfac
     createPopup?
     filterFunction?: ( value: ItemModelInterface | any,item?: ItemModelInterface,) => boolean
     ItemsFilterFunction?: (item: ItemModelInterface) => boolean
-    sorterFunction?: (a: ItemModelInterface, b: ItemModelInterface) => number|number
+    sorterFunction?: (a: ItemModelInterface, b: ItemModelInterface) => number|undefined
     filterShownItems?:(e:ItemModelInterface)=> boolean // filtra gli elementi della comboBox
     data4Modal?:any
 
