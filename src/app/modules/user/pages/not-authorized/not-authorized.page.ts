@@ -17,6 +17,6 @@ export class NotAuthorizedPage implements OnInit {
 
   ngOnInit() {
     this.image = "../../assets/img/notcrossing.jpg";
-    this.message = this.route.snapshot.paramMap.get("message");
+    this.message = this.route.snapshot.paramMap.get("message")!;
   }
 }

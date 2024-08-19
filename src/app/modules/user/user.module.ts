@@ -16,6 +16,9 @@ import { UsersPage } from './pages/users/users.page';
 import { ItemModule } from '../item/item.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { DesignoLoginInComponent } from './components/designo-login-in/designo-login-in.component';
+import { SignupPage } from './pages/signup/signup.page';
+import { ProfilePage } from './pages/profile/profile.page';
+import { EditUserPage } from './pages/edit-user/edit-user.page';
 
 
 
@@ -23,14 +26,16 @@ import { DesignoLoginInComponent } from './components/designo-login-in/designo-l
   declarations: [
     LoginPage,
     ResetPasswordPage,
-    //UsersPage,
+    UsersPage,
     LogoutUserComponent,
     LoginComponent,
    LoginDefinitivoComponent,
    SleekLoginComponent,
    DesignoLoginInComponent,
    SleekResetComponent,
-
+   SignupPage,
+   ProfilePage,
+   EditUserPage,
   ],
   imports: [FormsModule,
      ReactiveFormsModule,
@@ -44,6 +49,7 @@ import { DesignoLoginInComponent } from './components/designo-login-in/designo-l
   exports:[
     LogoutUserComponent,
     LoginComponent,
+    UsersPage,
     LoginDefinitivoComponent,
     SleekLoginComponent,
     DesignoLoginInComponent,

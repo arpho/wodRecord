@@ -35,7 +35,7 @@ export interface ItemModelInterface  extends MenuItem{
   getValue4?(): Value;
   setKey?(key:string):ItemModelInterface
   getEditPopup(item?: ItemModelInterface, service?: ItemServiceInterface);
-  initialize(item:{}):ItemModelInterface
+  initialize(item:{}):ItemModelInterface|undefined
   // tslint:disable-next-line: jsdoc-format
   /**ritorna l'etichetta e il valore da visualizzare del campo aggregato **/
   /**@deprecated */
