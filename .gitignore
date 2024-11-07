@@ -70,3 +70,5 @@ testem.log
 Thumbs.db
 
 src/assets/m1crossfit-5b2b9-firebase-adminsdk-ql81j-7231bb3d72.json
+
+src/environments/
