@@ -42,4 +42,8 @@ export class AuthService {
       });
     });
   }
+
+  sendPasswordResetEmail(email: string): Promise<void> { // Add this method
+    return this.afAuth.sendPasswordResetEmail(email);
+  }
 }
