@@ -20,7 +20,8 @@
       <ion-label position="floating">Password</ion-label>
       <ion-input type="password" formControlName="password" [(ngModel)]="password"></ion-input>
       <p class="error" *ngIf="loginForm.get('password')!.hasError('required')">Password is required</p>
-      <p  class= "error" *ngIf="loginForm.get('password')!.hasError('minLength')">Password must be 8 char long</p>
+      <p  class= "error" *ngIf="loginForm.get('password')!.hasError('minlength')">Password must be 8 char long</p>
     </ion-item>
+    <ion-button type="submit" [disabled]="!loginForm.valid" (click)="login()">Login</ion-button>
   </form>
 </ion-content>

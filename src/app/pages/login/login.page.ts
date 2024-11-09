@@ -1,14 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, Optional } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonItem, IonLabel, IonInput } from '@ionic/angular/standalone';
-
+import { IonContent, IonHeader, IonTitle, IonToolbar, IonItem, IonLabel, IonInput, IonButton } from '@ionic/angular/standalone';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { Auth, authState, signInAnonymously, signOut, User, GoogleAuthProvider, signInWithPopup } from '@angular/fire/auth';
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
   standalone: true,
-  imports: [IonInput, IonLabel, IonItem, IonContent, 
+  imports: [IonButton, IonInput, IonLabel, IonItem, IonContent, 
     IonHeader, 
     IonTitle, 
     IonToolbar, 
@@ -23,8 +24,13 @@ export class LoginPage implements OnInit {
 loginForm: FormGroup 
 email="";
 password="";
+  error: boolean= false;
+  errorMessage: any;
   constructor(
-    private fb: FormBuilder
+    private cdr: ChangeDetectorRef,
+    private fb: FormBuilder,
+    private afAuth: AngularFireAuth,
+    @Optional() private auth: Auth
   ) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -32,6 +38,37 @@ password="";
     }); }
 
   ngOnInit() {
+
+  }
+  login() {
+    if (this.loginForm.valid) {
+      console.log('Login form submitted:', this.loginForm.value);
+    console.log( this.email,this.password);
+
+    console.log(this.afAuth);
+    this.afAuth
+      .signInWithEmailAndPassword(this.email, this.password)
+      .catch((error) => {
+        console.log(error.message);
+        this.error = true;
+        this.errorMessage = error.message;
+        this.cdr.detectChanges();
+      })
+      .then((data) => {
+        console.log(data);
+        if (data) {
+          this.error = false;
+          this.errorMessage = '';
+          window.location.reload();
+        } else {
+          console.log('login failed');
+        }
+        // window.location.reload();
+      });
+
+    } else {
+      console.log('Login form is invalid');
+    }
   }
 
 }
