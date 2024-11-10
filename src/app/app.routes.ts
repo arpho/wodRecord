@@ -5,13 +5,12 @@ export const routes: Routes = [
   {
     path: 'home',
     loadComponent: () => import('./home/home.page').then((m) => m.HomePage),
-    canActivate:[AuthGuardFactory('home')]
+    canActivate:[AuthGuardFactory()]
   },
   {
     path: '',
     pathMatch: 'full',
-    loadComponent:()=> import('./home/home.page').then((m) => m.HomePage),
-    canActivate:[AuthGuardFactory('home')]
+    redirectTo: 'home'
   },
   {
     path: 'login',

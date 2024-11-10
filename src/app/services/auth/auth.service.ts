@@ -10,23 +10,23 @@ import 'firebase/compat/auth'; // Import the authentication module
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(private afAuth: AngularFireAuth, private http: HttpClient) {
-    console.log("environt", environment);
+  constructor(private afAuth: AngularFireAuth) {
   }
-  async googleLogin(): Promise<void> {
+/*   async googleLogin(): Promise<void> {
     const provider = new firebase.auth.GoogleAuthProvider();
     const credential = await this.afAuth.signInWithPopup(provider);
     await this.sendTokenToBackend(credential.user as firebase.User); // Ensure type is correctly cast
-  }
+  } */
   async logout(): Promise<void> {
     await this.afAuth.signOut();
+    //TODO inirtialize firebase
   }
-  private async sendTokenToBackend(user: firebase.User | null) {
+/*   private async sendTokenToBackend(user: firebase.User | null) {
     if (user) {
       const idToken = await user.getIdToken();
       await firstValueFrom(this.http.post(`${environment.backendUrl}/api/auth/login`, { idToken }));
     }
-  }
+  } */
   getUser(): Observable<firebase.User | null> {
     console.log("getting user");
     return this.afAuth.authState;
@@ -35,6 +35,7 @@ export class AuthService {
     return new Promise( (resolve, reject) => {
       this.getUser().subscribe( (user) => {
         if (user) {
+          console.log( "user is logged", user );
           resolve(true);
         } else {
           resolve(false);

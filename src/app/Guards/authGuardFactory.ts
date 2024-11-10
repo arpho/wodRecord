@@ -5,7 +5,7 @@ import { Auth } from "@angular/fire/auth"
 import { AuthService } from "../services/auth/auth.service"
 
 
-export const AuthGuardFactory = (redirectTo:string)=>{
+export const AuthGuardFactory = ()=>{
     const guard:(
         route: ActivatedRouteSnapshot,
         state: RouterStateSnapshot,
@@ -18,7 +18,7 @@ export const AuthGuardFactory = (redirectTo:string)=>{
    
         console.log("user is klogged",isUserLogged)
      {
-          return isUserLogged? router.createUrlTree([redirectTo]):     router.createUrlTree(["login"])
+          return isUserLogged?  true:     router.createUrlTree(["login"])
         }
        // return loggedUser.providerKey&&  loggedUser.enabled ? true:router.createUrlTree(["not-enabled"])
       }
